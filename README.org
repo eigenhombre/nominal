@@ -12,3 +12,15 @@ All functions return strings unless noted otherwise.
 | =(single-name)=       | Either of the previous two                       |
 | =(full-name-as-list)= | A list of single names -- usually 2 or 3 of them |
 | =(full-name-as-str)=  | Same as above, but as a string with spaces       |
+
+** Example
+
+#+BEGIN_SRC
+ (loop repeat 10 collect (full-name-as-str))
+ ;;=>
+ '("Angella Tracy Ame" "Idmeli Willie" "Shel Arce" "Eri Ona"
+   "Heri Mo Gu Mitchell Pansy" "Lyse Elen Willard Keisha"
+   "Son Zola Allena Llevevin Lan Mmie" "Carleen Micheal" "Eannica Jenni Riel"
+   "Glennie Iris")
+#+END_SRC
+
