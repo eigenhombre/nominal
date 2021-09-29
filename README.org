@@ -1,7 +1,7 @@
 #+TITLE: Nominal
 #+OPTIONS: toc:nil num:nil
 
-* Nominal - a small library for generating names.
+A small library for generating names.
 
 ** API
 
