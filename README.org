@@ -6,8 +6,8 @@
 ** API
 
 All functions have no arguments, and return strings unless noted otherwise
-| trad-name         | Pick a name at random                            |
-| ngram-name        | Pick a common n-gram; /n/ one of (2 3 4)         |
-| single-name       | Either of the previous two                       |
-| full-name-as-list | A list of single names -- usually 2 or 3 of them |
-| full-name-as-str  | Same as above, but as a string with spaces       |
+| =trad-name=         | Pick a name at random                            |
+| =ngram-name=        | Pick a common n-gram; /n/ one of (2 3 4)         |
+| =single-name=       | Either of the previous two                       |
+| =full-name-as-list= | A list of single names -- usually 2 or 3 of them |
+| =full-name-as-str=  | Same as above, but as a string with spaces       |
