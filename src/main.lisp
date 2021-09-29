@@ -1,6 +1,6 @@
 (defpackage nominal
   (:use :arrow-macros :cl :cl-oju :cl-ppcre)
-  (:export :make-name :full-name-as-str :full-name-as-list))
+  (:export :make-name :single-name :full-name-as-str :full-name-as-list))
 (in-package :nominal)
 
 (defun getenv (name &optional default)
@@ -38,7 +38,10 @@
   (cond ((listp x) x)
         ((stringp x) (loop for c across x collect c))))
 
-(defun l->str (x)
+(defun string-join-space (coll)
+  (format nil "~{~A~^ ~}" coll))
+
+(defun string-join (x)
   (concatenate 'string x))
 
 (defun mappend (fn &rest lsts)
@@ -53,7 +56,7 @@
                          seq
                          (partition-all n 1)
                          (remove-if-not #'(lambda (l) (= n (length l)))))))
-       (mapcar #'l->str)
+       (mapcar #'string-join)
        frequencies
        (lambda (l) (sort l #'>= :key #'cadr))
        (mapcar #'car)
@@ -66,21 +69,20 @@
         collect (rand-nth ngrams) into ret
         finally (return (apply #'concatenate 'string ret))))
 
-(defun corpus-name ()
+(defun trad-name ()
   "Return a name at random directly from the corpus"
   (rand-nth +corpus+))
 
-(defun make-name ()
+(defun single-name ()
   (if (= (random 2) 0)
       (ngram-name)
-      (corpus-name)))
+      (trad-name)))
+
+(defun make-name () (single-name))  ;; Backwards compat
 
 (defun full-name-as-list ()
   (loop repeat (rand-nth '(1 2 2 2 2 2 3 3 4 5 6))
-        collect (string-capitalize (make-name))))
-
-(defun string-join-space (coll)
-  (format nil "~{~A~^ ~}" coll))
+        collect (string-capitalize (single-name))))
 
 (defun full-name-as-str ()
   (string-join-space (full-name-as-list)))
