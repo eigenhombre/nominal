@@ -1,7 +1,8 @@
 #+TITLE: Nominal
 #+OPTIONS: toc:nil num:nil
 
-A small library for generating names.
+A small library for generating names.  Like [[https://github.com/eigenhombre/namejen][this Clojure library]] but
+simpler and much faster.
 
 ** API
 

@@ -88,6 +88,12 @@
   (string-join-space (full-name-as-list)))
 
 (comment
+ (time (loop repeat 100000 do (full-name-as-str)))
+ ;; 1.8 seconds
+ (* 1E6 (/ 1.8 100000))
+ ;;=>
+ 17.999998  ;; Microseconds
+
  (loop repeat 10 collect (full-name-as-str))
  ;;=>
  '("Shayla Asheragarawea Ira Avery Sie Louella" "Leen Tr Ola Tina Let Estesi"
