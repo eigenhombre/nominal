@@ -1,7 +1,7 @@
-(defpackage syllab
+(defpackage nominal
   (:use :arrow-macros :cl :cl-oju :cl-ppcre)
   (:export :make-name :full-name-as-str :full-name-as-list))
-(in-package :syllab)
+(in-package :nominal)
 
 (defun getenv (name &optional default)
   ;; From http://cl-cookbook.sourceforge.net/os.html
@@ -21,7 +21,7 @@
 (defun read-resource (filename)
   (slurp (concatenate 'string
                       (getenv "LISP_HOME")
-                      "/syllab/resources/"
+                      "/nominal/resources/"
                       filename)))
 
 (defun split-lines (s)
