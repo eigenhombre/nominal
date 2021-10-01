@@ -1,6 +1,13 @@
 (defpackage nominal
   (:use :arrow-macros :cl :cl-oju :cl-ppcre)
-  (:export :make-name :single-name :full-name-as-str :full-name-as-list))
+  (:export
+   :make-name
+   :ngram-name
+   :trad-name
+   :single-name
+   :full-name-as-str
+   :full-name-as-list))
+
 (in-package :nominal)
 
 (defun getenv (name &optional default)
@@ -84,8 +91,25 @@
   (loop repeat (rand-nth '(1 2 2 2 2 2 3 3 4 5 6))
         collect (string-capitalize (single-name))))
 
+(defun maybe-suffix ()
+  (if (< (random 1.0) 0.5)
+      nil
+      (list (rand-nth '("I" "II" "III" "Jr." "IV" "Esq.")))))
+
+(defun maybe-honorific ()
+  (if (< (random 1.0) 0.5)
+      nil
+      (list (rand-nth '("Dr." "Mr." "Ms."
+                        "Mrs." "Herr" "M"
+                        "先生" "女士")))))
+
+(defun full-name-as-list-with-honorific-and-suffix ()
+  `(,@ (maybe-honorific)
+       ,@ (full-name-as-list)
+       ,@ (maybe-suffix)))
+
 (defun full-name-as-str ()
-  (string-join-space (full-name-as-list)))
+  (string-join-space (full-name-as-list-with-honorific-and-suffix)))
 
 (comment
  (time (loop repeat 100000 do (full-name-as-str)))
