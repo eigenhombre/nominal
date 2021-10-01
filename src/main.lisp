@@ -120,7 +120,7 @@
 
  (loop repeat 10 collect (full-name-as-str))
  ;;=>
- '("Shayla Asheragarawea Ira Avery Sie Louella" "Leen Tr Ola Tina Let Estesi"
-   "Horace Page Ty" "Lenado Rett Ste" "Deli" "Eliachrilauralin Ett"
-   "Latina Willian Hr Ey" "Bebe" "Shonna Argentina" "Cleopatra Tina")
- )
+ '("Mx. Marvis Gerry" "Rleeio Et Zaida Madeline Shauna Than" "Ngmarc Ph Nna"
+   "女士 Rosesta Ngrene Ll IV" "先生 Ry Ish Colby Urden Eabe"
+   "James Abram Rodrigo II" "Mrs. Ant Vince Waean Ste II" "Ryfa Conchita"
+   "Kamala Evon May Jr." "Herr Lannie"))
