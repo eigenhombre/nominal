@@ -99,9 +99,9 @@
 (defun maybe-honorific ()
   (if (< (random 1.0) 0.5)
       nil
-      (list (rand-nth '("Dr." "Mr." "Ms."
-                        "Mrs." "Herr" "M"
-                        "先生" "女士")))))
+      (list (rand-nth '("Dr." "Mr." "Ms." "Fr." "Miss"
+                        "Mrs." "Herr" "M" "Sir" "Mx."
+                        "Lady" "Lord" "先生" "女士" "小姐")))))
 
 (defun full-name-as-list-with-honorific-and-suffix ()
   `(,@ (maybe-honorific)
