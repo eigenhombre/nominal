@@ -101,7 +101,8 @@
       nil
       (list (rand-nth '("Dr." "Mr." "Ms." "Fr." "Miss"
                         "Mrs." "Herr" "M" "Sir" "Mx."
-                        "Lady" "Lord" "先生" "女士" "小姐")))))
+                        "Lady" "Lord"
+                        "先生" "女士" "小姐" "夫人")))))
 
 (defun full-name-as-list-with-honorific-and-suffix ()
   `(,@ (maybe-honorific)
