@@ -97,12 +97,13 @@
       (list (rand-nth '("I" "II" "III" "Jr." "IV" "Esq.")))))
 
 (defun maybe-honorific ()
-  (if (< (random 1.0) 0.5)
-      nil
-      (list (rand-nth '("Dr." "Mr." "Ms." "Fr." "Miss"
-                        "Mrs." "Herr" "M" "Sir" "Mx."
-                        "Lady" "Lord"
-                        "先生" "女士" "小姐" "夫人")))))
+  (let ((r (random 1.0)))
+    (cond
+      ((< r 0.01) (list (rand-nth '("先生" "女士" "小姐" "夫人"))))
+      ((< r 0.5) (list (rand-nth '("Dr." "Mr." "Ms." "Fr." "Miss"
+                                   "Mrs." "Herr" "M" "Sir" "Mx."
+                                   "Lady" "Lord"))))
+      (t ()))))
 
 (defun full-name-as-list-with-honorific-and-suffix ()
   `(,@ (maybe-honorific)
