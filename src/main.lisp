@@ -92,9 +92,9 @@
         collect (string-capitalize (single-name))))
 
 (defun maybe-suffix ()
-  (if (< (random 1.0) 0.5)
-      nil
-      (list (rand-nth '("I" "II" "III" "Jr." "IV" "Esq.")))))
+  (if (< (random 1.0) 0.2)
+      (list (rand-nth '("I" "II" "III" "Jr." "Jr." "IV" "Esq.")))
+      nil))
 
 (defun maybe-honorific ()
   (let ((r (random 1.0)))
