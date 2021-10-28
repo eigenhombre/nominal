@@ -3,10 +3,13 @@
   (:export
    :make-name
    :ngram-name
+   :adjective
    :trad-name
    :single-name
    :full-name-as-str
-   :full-name-as-list))
+   :full-name-as-list
+   :animal-as-syms
+   :animal-as-str))
 
 (in-package :nominal)
 
@@ -39,6 +42,18 @@
    (concatenate 'string
                 (read-resource "female-names.txt")
                 (read-resource "male-names.txt"))))
+
+(defun adjective ()
+  (string-downcase
+   (symbol-name
+    (rand-nth
+     '(adorable attractive average beautiful bloody blue-eyed blushing
+       bright clean clear cloudy colorful cute dark distinct drab dull
+       elegant excited fancy fancy filthy glamorous gleaming gorgeous
+       graceful grotesque handsome homely light long magnificent misty
+       motionless muddy old-fashioned plain poised precious quaint quaint
+       shiny smoggy sparkling spotless stormy strange ugliest ugly
+       unsightly unusual wide-eyed)))))
 
 (defun seq (x)
   "poor person's sequential abstraction"

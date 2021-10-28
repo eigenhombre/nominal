@@ -7,5 +7,6 @@
                "cl-ppcre")
   :components ((:module "src"
                 :components
-                ((:file "main"))))
-  :description "A simple name generator")
+                ((:file "main")
+                 (:file "animals"))))
+  :description "A library for random name generation")
