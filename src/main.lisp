@@ -29,10 +29,12 @@
    default))
 
 (defun read-resource (filename)
-  (slurp (concatenate 'string
-                      (getenv "LISP_HOME")
-                      "/nominal/resources/"
-                      filename)))
+  (let ((home (getenv "LISP_HOME")))
+    (assert home)
+    (slurp (concatenate 'string
+                        (getenv "LISP_HOME")
+                        "/nominal/resources/"
+                        filename))))
 
 (defun split-lines (s)
   (cl-ppcre:split "\\s+" s))
